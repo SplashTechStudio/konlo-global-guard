@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Banknote, DollarSign, ArrowLeftRight, Shield } from "lucide-react";
+import { useCountry } from "@/contexts/CountryContext";
 
-const steps = [
+const HowItWorksSection = () => {
+  const { selectedCountry } = useCountry();
+  
+  const steps = [
   {
     icon: Banknote,
     title: "Deposit your local currency easily",
-    description: "Add money from your local bank account in ₦, ₵, R$, or any supported currency",
+    description: `Add money from your local bank account in ${selectedCountry.currencySymbol} or any supported currency`,
     color: "text-primary",
     bgColor: "bg-primary/10"
   },
@@ -32,7 +36,6 @@ const steps = [
   }
 ];
 
-export const HowItWorksSection = () => {
   return (
     <section id="how-it-works" className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -98,3 +101,5 @@ export const HowItWorksSection = () => {
     </section>
   );
 };
+
+export { HowItWorksSection };

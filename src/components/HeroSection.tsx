@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Globe, TrendingUp } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import { useCountry } from "@/contexts/CountryContext";
 
 export const HeroSection = () => {
+  const { selectedCountry } = useCountry();
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -107,7 +109,7 @@ export const HeroSection = () => {
               
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-card animate-float" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-foreground">₦ → $</span>
+                  <span className="text-sm font-semibold text-foreground">{selectedCountry.currencySymbol} → $</span>
                   <div className="w-3 h-3 rounded-full bg-secondary animate-pulse-glow"></div>
                 </div>
               </div>
