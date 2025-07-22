@@ -1,13 +1,17 @@
 import { Star, MapPin } from "lucide-react";
+import { useCountry } from "@/contexts/CountryContext";
 
-const testimonials = [
+const TestimonialsSection = () => {
+  const { selectedCountry } = useCountry();
+
+  const testimonials = [
   {
     name: "Blessing",
     location: "Lagos, Nigeria",
     flag: "🇳🇬",
     quote: "I save 40% of my salary in USD so my money doesn't melt away. Konlo made it so simple!",
     rating: 5,
-    savings: "₦2.5M saved"
+    savings: `${selectedCountry.currencySymbol}2.5M saved`
   },
   {
     name: "Carlos",
@@ -27,7 +31,6 @@ const testimonials = [
   }
 ];
 
-export const TestimonialsSection = () => {
   return (
     <section className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-6">
@@ -129,3 +132,5 @@ export const TestimonialsSection = () => {
     </section>
   );
 };
+
+export { TestimonialsSection };

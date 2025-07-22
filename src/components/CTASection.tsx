@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
+import { useCountry } from "@/contexts/CountryContext";
 
 export const CTASection = () => {
+  const { selectedCountry } = useCountry();
   return (
     <section className="py-20 bg-gradient-hero relative overflow-hidden">
       {/* Background Animation */}
@@ -21,7 +23,7 @@ export const CTASection = () => {
         </div>
         <div className="absolute top-1/3 right-1/3 animate-float" style={{ animationDelay: '1.5s' }}>
           <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-sm">
-            ₦
+            {selectedCountry.currencySymbol}
           </div>
         </div>
         <div className="absolute bottom-1/3 left-1/3 animate-float" style={{ animationDelay: '0.5s' }}>

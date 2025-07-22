@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { CountrySelector } from "./CountrySelector";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,9 +32,7 @@ export const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-foreground hover:text-primary">
-              Sign In
-            </Button>
+            <CountrySelector />
             <Button variant="default" size="sm">
               Get Started
             </Button>
@@ -75,9 +74,9 @@ export const Header = () => {
                 FAQ
               </a>
               <div className="px-3 py-2 space-y-2">
-                <Button variant="ghost" className="w-full justify-start text-foreground hover:text-primary">
-                  Sign In
-                </Button>
+                <div className="flex justify-center">
+                  <CountrySelector />
+                </div>
                 <Button variant="default" className="w-full">
                   Get Started
                 </Button>
